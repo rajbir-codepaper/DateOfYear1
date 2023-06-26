@@ -1,0 +1,21 @@
+{
+    "name": "raj/date-of-year",
+    "description": "\"A simple PHP package to calculate the day of the year based on a given date.\"",
+    "type": "find-year",
+    "license": "MIT",
+
+    "autoload": {
+        "psr-4": {
+            "Dateofyear\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "rajbir-codepaper",
+            "email": "rajbir.codepaper@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "^10.2"
+    }
+}
