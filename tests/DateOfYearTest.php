@@ -5,7 +5,6 @@ namespace Tests;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use Dateofyear\DateOfYear;
-use phpDocumentor\Reflection\PseudoTypes\True_;
 
 class DateOfYearTest extends TestCase
 {
@@ -15,21 +14,16 @@ class DateOfYearTest extends TestCase
     {
         // Arrange
         $dateOfYear = new DateOfYear($year);
-    
+
         // Act
         $result = $dateOfYear->getYearDifference();
     
-        echo $expected." ";
-        echo $year." ";
-        echo $result." ";
-
-
         // Assert
+
         $this->assertLessThanOrEqual($expected, $result);
         $this->assertGreaterThanOrEqual($expected - $year, $result);
         $this->assertLessThan($expected, $result);
-        $dateOfYear->assertGreaterValue($expected, $year);
-        $this->assertNotNullValue($result);
+        $this->assertNotNull($result);
     }
     
 
@@ -37,17 +31,7 @@ class DateOfYearTest extends TestCase
     {
         $currentYear = date('Y');
         $year = '1995';
-        yield [$year,$currentYear];
-     
+        yield [$year, $currentYear];
     }
-
-    public function assertNotNullValue($result)
-    {
-        if ($result!==null) {
-            return True;
-        }
-        else{
-            return false;
-        }
 }
-}
+?>

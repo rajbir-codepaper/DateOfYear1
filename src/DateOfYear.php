@@ -6,28 +6,52 @@ use InvalidArgumentException;
 class DateOfYear
 {
     private $year;
-    // private $currentYear;
+   
 
     public function __construct($year)
     {
         $this->year = $year;
-        // $this->currentYear = $currentYear;
     }
 
     public function getYearDifference()
     {
         $currentYear = date('Y');
         $difference = $currentYear - $this->year;
-
-        return $difference;
     
-        
+    if ($this->assertGreaterValue($this->year, $currentYear))
+    {
+        throw new InvalidArgumentException("Entered year is greater than current year");
     }
 
-    public function assertGreaterValue($year,$currentYear)
+    if (!$this->validateYear($this->year))
     {
-        return $year > $currentYear;
-    }   
+        throw new InvalidArgumentException("Invalid year entered");
+    }
+
+    if (!$this->assertLessValue($this->year, $currentYear))
+    {
+        throw new InvalidArgumentException("Entered year is not less than current year");
+    }
+
+    return $difference;
+}
+
+public function validateYear($year)
+{
+    $currentYear = date('Y');
+
+    return ($year <= $currentYear && $year >= 0);
+}
+
+public function assertGreaterValue($year,$currentYear)
+{
+    return $year > $currentYear;
+}
+   
+public function assertLessValue($year, $currentYear)
+{
+    return $year < $currentYear;
+}
 }
 
 
