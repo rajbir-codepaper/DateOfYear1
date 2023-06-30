@@ -1,5 +1,5 @@
 {
-    "name": "raj/date-of-year",
+    "name": "date-of-year",
     "description": "\"A simple PHP package to calculate the day of the year based on a given date.\"",
     "type": "find-year",
     "license": "MIT",
